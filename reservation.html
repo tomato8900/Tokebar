@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tokebar</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="reservation.css">
+    <link  href="index.html">
+
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header class="header">
+
+    <section class="flex">
+
+      <a href="#home" class="logo">
+        Tokebar
+      </a>
+    
+        <nav class="navbar">
+            <a href="/index.html">home</a>
+            <a href="/index.html">about</a>
+            <a href="/index.html">menu</a>
+            <a href="/index.html">Lunch</a>
+            <a href="/index.html#drinks">Drinks</a>
+            <a href="/index.html#contact">contact</a>
+            <a href="/index.html#sns">SNS</a>
+        </nav>
+    
+        <div class="icons">
+          <div class="fas fa-bars" id="menu-btn"></div>
+        </div>
+
+
+      </section>
+
+    </header>
+
+    <!-- header section ends -->
+    <section class=""></section>
+    <section class="reservations" id="reservations">
+      <div class="contact">
+
+        <form onsubmit="sendEmail(); reset(); return false;">
+          <h3>ご意見・ご要望</h3>
+          <input type="text" id="name" placeholder="お名前" required>
+          <input type="email" id="email" placeholder="Email" required>
+          <input type="text" id="phone" placeholder="電話番" required>
+          <textarea id="message" rows="5" placeholder="人数、日付とともにご要望を記入"></textarea>
+          <button class="btn" type="submit">Send</button>
+        </form>
+       </div>
+       <script src=" https://smtpjs.com/v3/smtp.js"></script>
+      
+       <script>
+        function sendEmail(){
+          Email.send({
+          Host : "smtp.gmail.com",
+          Username : "tomoko.nagata8900@gmail.com",
+          Password : "kaiitachi300",
+          To : 'tomoko.naheed@gmail.com',
+          From : document.getElementById("email").value,
+          Subject : "トケバルご予約フォームから",
+          Body : "お名前:" + document.getElementById("name").value
+          + "<br> Email:" + document.getElementById("email").value
+          +"<br> 電話番号:" + document.getElementById("phone").value
+          +"<br> メッセージ:" + document.getElementById("message").value
+      }).then(
+        message => alert("Message Sent Successfully")
+      );
+        }
+</script>
+
+    <!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+</body>
+</html>
